@@ -1,0 +1,53 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: velocity-postgres
+    environment:
+      POSTGRES_DB: velocity
+      POSTGRES_USER: velocity
+      POSTGRES_PASSWORD: velocity
+    ports:
+      - "5432:5432"
+    volumes:
+      - velocity-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U velocity -d velocity"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: backend/velocity/Velocity.Api/Dockerfile
+    container_name: velocity-api
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__DefaultConnection: Host=postgres;Port=5432;Database=velocity;Username=velocity;Password=velocity
+      Cors__AllowedOrigins__0: http://localhost:3000
+      SeedAdmin__Email: ${SEED_ADMIN_EMAIL:-}
+      SeedAdmin__Password: ${SEED_ADMIN_PASSWORD:-}
+      Database__MigrateOnStartup: "true"
+    ports:
+      - "5267:8080"
+
+  frontend:
+    build:
+      context: frontend/velocity-frontend
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:5267
+    container_name: velocity-frontend
+    depends_on:
+      - api
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:5267
+      NODE_ENV: production
+    ports:
+      - "3000:3000"
+
+volumes:
+  velocity-postgres-data:

@@ -1,0 +1,11 @@
+bin/
+obj/
+.next/
+node_modules/
+*.user
+*.suo
+.env
+.env.local
+*.db
+*.db-shm
+*.db-wal

@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: velocity-postgres
+    environment:
+      POSTGRES_DB: velocity
+      POSTGRES_USER: velocity
+      POSTGRES_PASSWORD: velocity
+    ports:
+      - "5432:5432"
+    volumes:
+      - velocity-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  velocity-postgres-data:
