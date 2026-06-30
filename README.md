@@ -4,44 +4,48 @@ Velocity is a full-stack luxury car rental platform for browsing premium vehicle
 
 The project is built as a portfolio-ready production prototype with a Next.js frontend, an ASP.NET Core API, PostgreSQL persistence, Docker-based local development, role-based authentication, booking workflows, and admin tooling.
 
+## Live Demo
+
+https://velocityrent.vercel.app/
+
 ## Highlights
 
-- Vehicle search with location, pickup date/time, and return date/time
-- Modern date, time, and location pickers with shared selection state
-- Vehicle detail pages with image gallery, pricing, availability, and WhatsApp inquiry flow
-- User registration, login, account area, and booking overview
-- Admin dashboard with reservations, fleet overview, and vehicle blocking for maintenance, cleaning, private use, or manual admin blocks
-- PostgreSQL database with Entity Framework Core migrations
-- ASP.NET Core Identity with role-based access for users and admins
-- Docker Compose setup for frontend, backend, and database
-- Deployment-ready structure for Vercel frontend and Docker-hosted backend
+* Vehicle search with location, pickup date/time, and return date/time
+* Modern date, time, and location pickers with shared selection state
+* Vehicle detail pages with image gallery, pricing, availability, and WhatsApp inquiry flow
+* User registration, login, account area, and booking overview
+* Admin dashboard with reservations, fleet overview, and vehicle blocking for maintenance, cleaning, private use, or manual admin blocks
+* PostgreSQL database with Entity Framework Core migrations
+* ASP.NET Core Identity with role-based access for users and admins
+* Docker Compose setup for frontend, backend, and database
+* Deployment-ready structure for Vercel frontend and Docker-hosted backend
 
 ## Tech Stack
 
 **Frontend**
 
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
-- Framer Motion
-- Lucide Icons
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+* Framer Motion
+* Lucide Icons
 
 **Backend**
 
-- ASP.NET Core 8
-- C#
-- Entity Framework Core
-- ASP.NET Core Identity
-- PostgreSQL
-- Swagger / OpenAPI
+* ASP.NET Core 8
+* C#
+* Entity Framework Core
+* ASP.NET Core Identity
+* PostgreSQL
+* Swagger / OpenAPI
 
 **Infrastructure**
 
-- Docker
-- Docker Compose
-- Vercel-ready frontend configuration
-- Docker-ready API deployment
+* Docker
+* Docker Compose
+* Vercel-ready frontend configuration
+* Docker-ready API deployment
 
 ## Project Structure
 
@@ -62,9 +66,9 @@ velocity/
 
 ### Prerequisites
 
-- Docker Desktop
-- Node.js 22+
-- .NET SDK 8+
+* Docker Desktop
+* Node.js 22+
+* .NET SDK 8+
 
 ### Start the full stack
 
@@ -76,9 +80,9 @@ docker compose up --build
 
 Services:
 
-- Frontend: `http://localhost:3000`
-- API / Swagger: `http://localhost:5267/swagger`
-- PostgreSQL: `localhost:5432`
+* Frontend: `http://localhost:3000`
+* API / Swagger: `http://localhost:5267/swagger`
+* PostgreSQL: `localhost:5432`
 
 ### Run frontend manually
 
@@ -130,11 +134,15 @@ If these values are not set, no admin user is created automatically.
 
 ## Deployment
 
+The frontend is deployed on Vercel:
+
+* Live frontend: https://velocityrent.vercel.app/
+
 Recommended deployment split:
 
-- Frontend: Vercel
-- Backend: Render, Fly.io, Railway, or Azure App Service using Docker
-- Database: Neon, Supabase, Render PostgreSQL, Railway PostgreSQL, or managed PostgreSQL on Azure
+* Frontend: Vercel
+* Backend: Render, Fly.io, Railway, or Azure App Service using Docker
+* Database: Neon, Supabase, Render PostgreSQL, Railway PostgreSQL, or managed PostgreSQL on Azure
 
 See [DEPLOYMENT.md](./DEPLOYMENT.md) for more details.
 
@@ -142,11 +150,11 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for more details.
 
 This repository is intended to be safe for public portfolio use:
 
-- No real user data should be committed
-- No production database dumps should be committed
-- No API keys, secrets, or real connection strings should be committed
-- Local Docker credentials are development-only placeholders
-- Production secrets must be configured in the hosting provider
+* No real user data should be committed
+* No production database dumps should be committed
+* No API keys, secrets, or real connection strings should be committed
+* Local Docker credentials are development-only placeholders
+* Production secrets must be configured in the hosting provider
 
 Before publishing updates, run a quick scan:
 
@@ -160,12 +168,12 @@ Get-ChildItem -Recurse -File |
 
 ## Roadmap
 
-- Stripe or Mollie payment integration
-- Admin vehicle creation form with image upload
-- Email notifications for booking status changes
-- Full profile editing endpoints
-- Production observability and structured logging
-- Automated backend tests for booking availability rules
+* Stripe or Mollie payment integration
+* Admin vehicle creation form with image upload
+* Email notifications for booking status changes
+* Full profile editing endpoints
+* Production observability and structured logging
+* Automated backend tests for booking availability rules
 
 ## Portfolio Context
 
